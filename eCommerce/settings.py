@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'fashion'
+    'fashion',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,8 +79,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME' : 'ecommercewebsite',
         'USER' : 'postgres',
-        'PASSWORD' : 'Sree@post1'
-        'HOST' : 'localhost'
+        'PASSWORD' : 'Sree@post1',
+        'HOST' : 'Localhost'
     }
 }
 
