@@ -8,7 +8,7 @@
     <meta name="keywords" content="Fashi, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fashi | Template</title>
+    <title>FashionWorld | Registation</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -49,9 +49,9 @@
                     <a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                            <option value='yt' data-image="img/flag-1.jpg" data-imagecss="flag yt"
+                            <option value='yt' data-image="{% static 'img/flag-1.jpg' %}" data-imagecss="flag yt"
                                 data-title="English">English</option>
-                            <option value='yu' data-image="img/flag-2.jpg" data-imagecss="flag yu"
+                            <option value='yu' data-image="{% static 'img/flag-2.jpg' %}" data-imagecss="flag yu"
                                 data-title="Bangladesh">German </option>
                         </select>
                     </div>
@@ -212,21 +212,27 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="register-form">
                         <h2>Register</h2>
-                        <form action="register" method="POST">
-                            <div class="group-input">
-                                <label for="username">Username or email address *</label>
-                                <input type="text" id="username">
-                            </div>
-                            <div class="group-input">
-                                <label for="pass">Password *</label>
-                                <input type="text" id="pass">
-                            </div>
-                            <div class="group-input">
-                                <label for="con-pass">Confirm Password *</label>
-                                <input type="text" id="con-pass">
-                            </div>
-                            <button type="submit" class="site-btn register-btn">REGISTER</button>
+                        <form action = "register" method = "post">
+                            {% csrf_token%}
+                                <div class="group-input">
+                                    <label for="username">Username or email address *</label>
+                                    <input type="text" name="username" id="username">
+                                </div>
+                                <div class="group-input">
+                                    <label for="pass">Password *</label>
+                                    <input type="password" name = 'password1'id="pass">
+                                </div>
+                                <div class="group-input">
+                                    <label for="con-pass">Confirm Password *</label>
+                                    <input type="password" name="password2" id="con-pass">
+                                </div>
+                                <button type="submit" class="site-btn register-btn">REGISTER</button>
                         </form>
+                        <div>
+                            {% for message in messages %}
+                            <h3>{{message}}</h3>
+                            {% endfor %}
+                        </div>
                         <div class="switch-login">
                             <a href="./login.html" class="or-login">Or Login</a>
                         </div>
